@@ -1,9 +1,11 @@
 class ContaController {
+    private repositorioContas: RepositorioContas;
+
     constructor() {
         this.repositorioContas = new RepositorioContas();
     }
 
-    adicionarConta(conta) {
+    adicionarConta(conta: Conta) {
         this.repositorioContas.adicionar(conta);
     }
 
@@ -13,10 +15,10 @@ class ContaController {
         );
     }
 
-    inserir(evento) {
+    inserir(evento: Event) {
         evento.preventDefault();
-        const elementoNumero = document.querySelector('#numero');
-        const elementoSaldo = document.querySelector('#saldo');
+        const elementoNumero = <HTMLInputElement>document.querySelector('#numero');
+        const elementoSaldo = <HTMLInputElement>document.querySelector('#saldo');
 
         const conta = new Conta(elementoNumero.value,
             Number(elementoSaldo.value));
@@ -24,15 +26,15 @@ class ContaController {
         this.inserirContaNoHTML(conta);
     }
 
-    inserirContaNoHTML(conta) {
+    inserirContaNoHTML(conta: Conta) {
         const elementoP = document.createElement('p');
-        elementoP.textContent = 'Conta ' + conta.numero + ': ' + conta.saldo;
+        elementoP.textContent = 'Conta ' + conta.numero + ': ' + conta.getSaldo();
         const botaoApagar = document.createElement('button');
         botaoApagar.textContent = 'X';
 
         botaoApagar.addEventListener('click', (event) => {
             this.repositorioContas.remover(conta.numero);
-            event.target.parentElement.remove();
+            (<Element>event.target).parentElement.remove();
         });
 
         elementoP.appendChild(botaoApagar);

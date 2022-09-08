@@ -1,6 +1,8 @@
 const c1 = new Conta('1', 100);
 const c2 = new Conta('2');
 
+
+console.log(c1.numero);
 const contaController = new ContaController();
 contaController.adicionarConta(c1);
 contaController.adicionarConta(c2);
@@ -8,7 +10,7 @@ contaController.listar();
 
 const contaBonificada = new ContaBonificada('10', 100);
 contaBonificada.creditar(10);
-console.log(contaBonificada.saldo);
+console.log(contaBonificada.getSaldo());
 
 
 // const repContas = new RepositorioContas();

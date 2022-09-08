@@ -9,6 +9,8 @@
 Icon/*
 Icon*
 Icon
+app/js/*
+node_modules/
 
 .idea
 *.iml
