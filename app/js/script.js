@@ -8,6 +8,12 @@ contaController.listar();
 const contaBonificada = new ContaBonificada('10', 100);
 contaBonificada.creditar(10);
 console.log(contaBonificada.getSaldo());
+const joao = new Pessoa('João', 3, new Date('10/02/2019'));
+const joaquim = new PessoaFisica('Joaquim', 30, new Date('10/02/1992'), '12345678987');
+const jazias = new PessoaJuridica('Jazias', 38, new Date('10/02/1984'), '12345678990');
+console.log(joao.toString());
+console.log(joaquim.toString());
+console.log(jazias.toString());
 // const repContas = new RepositorioContas();
 //
 // const c1 = new Conta('1', 100);
